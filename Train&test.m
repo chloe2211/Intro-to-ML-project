@@ -1,3 +1,4 @@
+%% updating right now, please come back later
 # cost function 
 function checkCostFunction(lambda)
 %CHECKCOSTFUNCTION Creates a collaborative filering problem 
