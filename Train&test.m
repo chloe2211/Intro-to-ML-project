@@ -1,6 +1,13 @@
+% initialize the result matrix and weight matrix
+Res = zeros(943, 1682);
+weight = zeros(943, 1682);
+for i=1:100000
+     R(user_id(i), movie_id(i)) = rating(i);
+     w(user_id(i), movie_id(i)) = 1;
+ end
 
  k = [10, 50, 100];
-% 
+
  % Factorize using clrule
  [U11,V11,Iteration,tElapsed,finalRes11]=clrule(R, k(1), w);
  [U12,V12,Iteration,tElapsed,finalRes12]=clrule(R, k(2), w);
