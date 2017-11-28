@@ -1,3 +1,38 @@
+% 3 values of lambda
+lambda = [0.01,0.1,1];
+ 
+% % Build matrix R and w (weights matrix)
+ R5 = R;
+ w5 = w;
+ k = [10, 50, 100];
+
+ for i=1:3
+     [U51,V51,Iteration,tElapsed,finalRes511]=myclrule(R5, k(1), w5, lambda(i));
+     [U52,V52,Iteration,tElapsed,finalRes512]=myclrule(R5, k(2), w5, lambda(i));
+     [U53,V53,Iteration,tElapsed,finalRes513]=myclrule(R5, k(3), w5, lambda(i));
+     
+    % Compute and Store the errors
+     lse31(1,i) = finalRes311; 
+     lse31(2,i) = finalRes312; 
+     lse31(3,i) = finalRes313; 
+ end
+% % Swapping R and W
+ R52 = w5;
+ w52 = R5;
+% 
+ lse32 = zeros(3,3);
+% 
+ for i=1:3
+     [U51,V51,Iteration,tElapsed,finalRes521]=myclrule5(R52, k(1), w52, lambda(i));
+     [U52,V52,Iteration,tElapsed,finalRes522]=myclrule(R52, k(2), w52, lambda(i));
+     [U53,V53,Iteration,tElapsed,finalRes523]=myclrule(R52, k(3), w52, lambda(i));
+     
+%     % Compute and Store the errors
+     lse32(1,i) = finalRes521; 
+     lse32(2,i) = finalRes522; 
+     lse32(3,i) = finalRes523; 
+ end
+
 % % Find the top L movies
 for n = 1:3 % For 3 values of lambda
      for m = 1:3 % For 3 different k values = 10, 50, 100
