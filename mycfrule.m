@@ -1,4 +1,4 @@
-function [A,B,Iteration,tElapsed,finalRes]=clrule(X, k, W, lambda, option)
+function [A,B,Iteration,tElapsed,finalRes]=mycfrule(X, k, W, lambda, option)
 % X is a matrix with each column being the sample and each row being the
 % feature. 
 % k is the # of clusters
