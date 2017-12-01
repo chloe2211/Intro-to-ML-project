@@ -20,10 +20,10 @@ if Margin<5
 else
     option=mergeOption(option,optionDefault);
 end
- W=isnan(X);
- X(W)=0;
- W=~W;
- W=~(X==0);
+%  W=isnan(X);
+%  X(W)=0;
+%  W=~W;
+%  W=~(X==0);
  
 [f,s]=size(X); 
 % s is the number of samples 
