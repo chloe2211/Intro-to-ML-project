@@ -1,4 +1,4 @@
-function [A,B,Iteration,tElapsed,finalRes]=mycfrule(X, k, W, lambda, option)
+function [A,B,Iteration,tElapsed,finalRes]=mycfrule(X, k, W, option)
 % X is a matrix with each column being the sample and each row being the
 % feature. 
 % k is the # of clusters
@@ -39,9 +39,9 @@ for i=1:option.iter
     switch option.distance
         case 'ls'
             % Modified this formula for regularization
-            A=A.*(((W.*X)*B')./(lambda*A + (W.*(A*B))*B')) ;
+            A=A.*(((W.*X)*B')./(A + (W.*(A*B))*B')) ;
                 A=max(A,eps);
-            B=B.*((A'*(W.*X))./(lambda*B + A'*(W.*(A*B))));
+            B=B.*((A'*(W.*X))./(B + A'*(W.*(A*B))));
                 B=max(B,eps);
         case 'kl'
             A=(A./(W*B')) .* ( ((W.*X)./(A*B))*B');
